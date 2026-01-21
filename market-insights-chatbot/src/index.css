@@ -1,0 +1,30 @@
+:root {
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-surface: rgba(255, 255, 255, 0.4);
+  --primary-accent: #ff8c42;
+  --primary-gradient: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+  --text-primary: #2d3436;
+  --text-secondary: rgba(45, 52, 54, 0.7);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(at 10% 10%, rgba(255, 228, 196, 0.4) 0, transparent 40%),
+    radial-gradient(at 90% 10%, rgba(255, 160, 122, 0.3) 0, transparent 40%),
+    radial-gradient(at 50% 90%, rgba(250, 235, 215, 0.5) 0, transparent 50%),
+    linear-gradient(135deg, #fdfbf7 0%, #fff1eb 100%);
+  background-color: #fdfbf7;
+  background-attachment: fixed;
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
