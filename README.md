@@ -1,9 +1,53 @@
 # Market Insights Chatbot
-Market Insights Chatbot is a web-based tool that uses OpenAI GPT to answer finance queries, providing real-time stock prices, market trends, and economic indicators through integrated APIs. Designed with React and deployed on AWS, it helps users explore markets interactively and learn key financial concepts.
 
-Users can ask questions like:
-"What is Tesla’s current stock price?"
-"Explain the concept of inflation in simple terms."
-"What was the GDP growth rate of India last year?"
+**Market Insights Chatbot** is an intelligent web-based tool designed to democratize financial knowledge. Leveraging OpenAI's GPT models, it provides users with real-time answers to finance queries, stock market trends, and economic indicators.
 
-This project is designed as an educational tool, providing market data and insights to anyone curious about financial markets, helping them learn interactively without the need for complex finance tools.
+## Features
+
+*   **AI-Powered Responses**: Uses OpenAI GPT to explain complex financial concepts in simple terms.
+*   **Real-Time Data**: Integrates with financial APIs to fetch current stock prices and market trends.
+*   **Interactive Learning**: Ask questions like "What is inflation?" or "How is Tesla performing?" to get instant insights.
+*   **Modern UI**: Built with React for a responsive and smooth user experience.
+
+## Tech Stack
+
+*   **Frontend**: React (Create React App)
+*   **AI Engine**: OpenAI GPT (via API)
+*   **Deployment**: AWS (as per project description)
+
+## Getting Started
+
+The core application logic is located in the `market-chatbot` directory.
+
+### Prerequisites
+
+*   Node.js installed
+*   An OpenAI API key
+
+### Installation & Run
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/saksham7saxena/market-insights.git
+    ```
+
+2.  Navigate to the project directory:
+    ```bash
+    cd market-insights/market-chatbot
+    ```
+
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+4.  Start the development server:
+    ```bash
+    npm start
+    ```
+
+5.  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
