@@ -2,792 +2,822 @@
    BASE RESET & THEME
    ========================= */
 
-   * {
-    box-sizing: border-box;
-  }
-  
-  html,
-  body,
-  #root {
-    height: 100%;
-    margin: 0;
-    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
-      "Helvetica Neue", sans-serif;
-  
-    background:
-      radial-gradient(1000px 600px at 85% -10%, rgba(99,102,241,0.22), transparent 60%),
-      radial-gradient(900px 600px at -15% 85%, rgba(139,92,246,0.18), transparent 60%),
-      #0b0b0d;
-  
-    color: rgba(255, 255, 255, 0.94);
-  }
-  
-  /* =========================
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", sans-serif;
+
+  background:
+    radial-gradient(1000px 600px at 85% -10%, rgba(99, 102, 241, 0.22), transparent 60%),
+    radial-gradient(900px 600px at -15% 85%, rgba(139, 92, 246, 0.18), transparent 60%),
+    #0b0b0d;
+
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* =========================
      EMPTY / LANDING STATE
      ========================= */
-  
-  .empty-root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    text-align: center;
-    padding: 0 24px;
-  }
-  
-  /* Logo bubble */
-  .logo-bubble {
-    width: 88px;
-    height: 88px;
-    border-radius: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    background: 
-      linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15)),
-      rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+
+.empty-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Logo bubble */
+.logo-bubble {
+  width: 88px;
+  height: 88px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15)),
+    rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  animation: logoPulse 3s ease-in-out infinite, logoFloat 6s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.logo-bubble::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+@keyframes logoPulse {
+
+  0%,
+  100% {
     box-shadow:
       0 20px 60px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.2),
       0 0 0 1px rgba(255, 255, 255, 0.05);
-    position: relative;
-    animation: logoPulse 3s ease-in-out infinite, logoFloat 6s ease-in-out infinite;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
-    overflow: hidden;
   }
 
-  .logo-bubble::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
-  @keyframes logoPulse {
-    0%, 100% {
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
-    }
-    50% {
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.05),
-        0 0 40px rgba(99, 102, 241, 0.25);
-    }
-  }
-
-  @keyframes logoFloat {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-8px) rotate(2deg);
-    }
-  }
-
-  .logo-bubble:hover {
-    transform: scale(1.08) rotate(-3deg);
+  50% {
     box-shadow:
-      0 28px 80px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 0 0 1px rgba(255, 255, 255, 0.1),
-      0 0 60px rgba(99, 102, 241, 0.4),
-      0 0 100px rgba(139, 92, 246, 0.2);
-    animation: none;
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 0 40px rgba(99, 102, 241, 0.25);
+  }
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
   }
 
-  .logo-bubble:hover::after {
-    opacity: 1;
+  50% {
+    transform: translateY(-8px) rotate(2deg);
   }
-  
-  .logo-bubble::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.3) 50%, 
+}
+
+.logo-bubble:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(99, 102, 241, 0.4),
+    0 0 100px rgba(139, 92, 246, 0.2);
+  animation: none;
+}
+
+.logo-bubble:hover::after {
+  opacity: 1;
+}
+
+.logo-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
       transparent 100%);
-    border-radius: 24px 24px 0 0;
-  }
-  
-  /* Title */
-  .empty-title {
-    margin-top: 20px;
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: rgba(255, 255, 255, 0.98);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-    animation: titleFadeIn 0.6s ease-out 0.1s both;
+  border-radius: 24px 24px 0 0;
+}
+
+/* Title */
+.empty-title {
+  margin-top: 20px;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  animation: titleFadeIn 0.6s ease-out 0.1s both;
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 
-  @keyframes titleFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Subtitle */
-  .empty-subtitle {
-    max-width: 580px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 8px;
-    letter-spacing: -0.01em;
-    animation: subtitleFadeIn 0.6s ease-out 0.2s both;
+}
+
+/* Subtitle */
+.empty-subtitle {
+  max-width: 580px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+  animation: subtitleFadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 
-  @keyframes subtitleFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Input glass pill */
-  .input-shell {
-    margin-top: 32px;
-    width: 720px;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 22px;
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      0 0 0 1px rgba(255, 255, 255, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: inputShellFadeIn 0.6s ease-out;
+}
+
+/* Input glass pill */
+.input-shell {
+  margin-top: 32px;
+  width: 720px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: inputShellFadeIn 0.6s ease-out;
+}
+
+@keyframes inputShellFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 
-  @keyframes inputShellFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .input-shell:focus-within {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px) scale(1.01);
+}
+
+.input-shell:focus-within {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 50px rgba(99, 102, 241, 0.3),
+    0 0 80px rgba(139, 92, 246, 0.15);
+  animation: inputGlow 2s ease-in-out infinite;
+}
+
+@keyframes inputGlow {
+
+  0%,
+  100% {
     box-shadow:
       0 32px 90px rgba(0, 0, 0, 0.7),
       inset 0 1px 0 rgba(255, 255, 255, 0.2),
       0 0 0 1px rgba(255, 255, 255, 0.15),
       0 0 50px rgba(99, 102, 241, 0.3),
       0 0 80px rgba(139, 92, 246, 0.15);
-    animation: inputGlow 2s ease-in-out infinite;
   }
 
-  @keyframes inputGlow {
-    0%, 100% {
-      box-shadow:
-        0 32px 90px rgba(0, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.15),
-        0 0 50px rgba(99, 102, 241, 0.3),
-        0 0 80px rgba(139, 92, 246, 0.15);
-    }
-    50% {
-      box-shadow:
-        0 32px 90px rgba(0, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.15),
-        0 0 60px rgba(99, 102, 241, 0.4),
-        0 0 100px rgba(139, 92, 246, 0.25);
-    }
-  }
-  
-  .input-shell input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: -0.01em;
-  }
-  
-  .input-shell input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: -0.01em;
-    opacity: 1;
-    transition: opacity 0.2s ease;
-  }
-
-  .input-shell input:focus::placeholder {
-    opacity: 0.4;
-  }
-
-  /* Ghost text animation - only show when there's actual ghost text */
-  .input-shell input[data-ghost-text=""]::placeholder {
-    opacity: 0;
-  }
-  
-  /* Send button */
-  .input-shell button,
-  .send-button {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    background:
-      linear-gradient(
-        135deg,
-        rgba(99,102,241,0.95),
-        rgba(139,92,246,0.95)
-      );
-  
-    color: white;
-  
+  50% {
     box-shadow:
-      0 10px 28px rgba(99,102,241,0.5),
-      inset 0 1px 0 rgba(255,255,255,0.25);
-  
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+      0 32px 90px rgba(0, 0, 0, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      0 0 60px rgba(99, 102, 241, 0.4),
+      0 0 100px rgba(139, 92, 246, 0.25);
   }
+}
 
-  .input-shell button::before,
-  .send-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-  }
+.input-shell input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.01em;
+}
 
-  .input-shell button:hover,
-  .send-button:hover {
-    transform: translateY(-3px) scale(1.08) rotate(5deg);
+.input-shell input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.01em;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.input-shell input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* Ghost text animation - only show when there's actual ghost text */
+.input-shell input[data-ghost-text=""]::placeholder {
+  opacity: 0;
+}
+
+/* Send button */
+.input-shell button,
+.send-button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(135deg,
+      rgba(99, 102, 241, 0.95),
+      rgba(139, 92, 246, 0.95));
+
+  color: white;
+
+  box-shadow:
+    0 10px 28px rgba(99, 102, 241, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.input-shell button::before,
+.send-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.input-shell button:hover,
+.send-button:hover {
+  transform: translateY(-3px) scale(1.08) rotate(5deg);
+  box-shadow:
+    0 20px 50px rgba(99, 102, 241, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(99, 102, 241, 0.5),
+    0 0 60px rgba(139, 92, 246, 0.3);
+  animation: buttonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+
+  0%,
+  100% {
     box-shadow:
-      0 20px 50px rgba(99,102,241,0.7),
-      inset 0 1px 0 rgba(255,255,255,0.4),
-      0 0 30px rgba(99,102,241,0.5),
-      0 0 60px rgba(139,92,246,0.3);
-    animation: buttonPulse 1.5s ease-in-out infinite;
+      0 20px 50px rgba(99, 102, 241, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 30px rgba(99, 102, 241, 0.5),
+      0 0 60px rgba(139, 92, 246, 0.3);
   }
 
-  @keyframes buttonPulse {
-    0%, 100% {
-      box-shadow:
-        0 20px 50px rgba(99,102,241,0.7),
-        inset 0 1px 0 rgba(255,255,255,0.4),
-        0 0 30px rgba(99,102,241,0.5),
-        0 0 60px rgba(139,92,246,0.3);
-    }
-    50% {
-      box-shadow:
-        0 20px 50px rgba(99,102,241,0.8),
-        inset 0 1px 0 rgba(255,255,255,0.45),
-        0 0 40px rgba(99,102,241,0.6),
-        0 0 80px rgba(139,92,246,0.4);
-    }
+  50% {
+    box-shadow:
+      0 20px 50px rgba(99, 102, 241, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 0 40px rgba(99, 102, 241, 0.6),
+      0 0 80px rgba(139, 92, 246, 0.4);
   }
+}
 
-  .input-shell button:hover::before,
-  .send-button:hover::before {
-    width: 100%;
-    height: 100%;
-  }
+.input-shell button:hover::before,
+.send-button:hover::before {
+  width: 100%;
+  height: 100%;
+}
 
-  .input-shell button:active,
-  .send-button:active {
-    transform: translateY(0) scale(0.98);
-    transition: transform 0.1s ease;
-  }
+.input-shell button:active,
+.send-button:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
 
-  .input-shell button svg,
-  .send-button svg {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease;
-  }
+.input-shell button svg,
+.send-button svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
 
-  .input-shell button:hover svg,
-  .send-button:hover svg {
-    transform: translateX(2px) translateY(-2px);
-  }
-  
-  /* =========================
+.input-shell button:hover svg,
+.send-button:hover svg {
+  transform: translateX(2px) translateY(-2px);
+}
+
+/* =========================
      CHAT STATE
      ========================= */
-  
-  .chat-root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    animation: chatFadeIn 0.4s ease-out;
+
+.chat-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: chatFadeIn 0.4s ease-out;
+  overflow: hidden;
+}
+
+@keyframes chatFadeIn {
+  from {
+    opacity: 0;
   }
 
-  @keyframes chatFadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Back button */
+.back-button {
+  /* position: fixed; removed */
+  /* top: 24px; removed */
+  /* left: 80px; removed */
+  /* z-index: 1000; removed */
+  align-self: flex-start;
+  margin: 24px 0 0 80px;
+  z-index: 10;
+  /* Lower z-index just in case, but usually fine in flow */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: backButtonSlideIn 0.5s ease-out 0.2s both;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  display: inline-flex;
+}
+
+.back-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+@keyframes backButtonSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
   }
 
-  /* Back button */
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.back-button svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.back-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateX(4px) translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.back-button:hover::before {
+  left: 100%;
+}
+
+.back-button:hover svg {
+  transform: translateX(-4px) scale(1.1);
+}
+
+.back-button:active {
+  transform: translateX(2px) translateY(0);
+  transition: transform 0.1s ease;
+}
+
+@media (max-width: 768px) {
   .back-button {
-    position: fixed;
-    top: 24px;
-    left: 80px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: backButtonSlideIn 0.5s ease-out 0.2s both;
-    position: relative;
-    overflow: hidden;
+    margin-left: 24px;
+    padding: 8px 14px;
+    font-size: 13px;
   }
+}
 
-  .back-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-  }
-
-  @keyframes backButtonSlideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .back-button svg {
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
-    z-index: 1;
-  }
-
-  .back-button span {
-    position: relative;
-    z-index: 1;
-  }
-
-  .back-button:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.18);
-    transform: translateX(4px) translateY(-2px);
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      0 0 30px rgba(99, 102, 241, 0.2);
-  }
-
-  .back-button:hover::before {
-    left: 100%;
-  }
-
-  .back-button:hover svg {
-    transform: translateX(-4px) scale(1.1);
-  }
-
-  .back-button:active {
-    transform: translateX(2px) translateY(0);
-    transition: transform 0.1s ease;
-  }
-
-  @media (max-width: 768px) {
-    .back-button {
-      left: 24px;
-      padding: 8px 14px;
-      font-size: 13px;
-    }
-  }
-  
-  /* 
+/* 
      IMPORTANT:
      This is where we increase
      left/right margins for chat
   */
-  .chat-scroll {
-    flex: 1;
-    overflow-y: auto;
-    padding: 56px 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .chat-scroll::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .chat-scroll::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
-  .chat-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-  
-  /* Message bubbles */
-  .bubble {
-    max-width: 75%;
-    padding: 18px 22px;
-    border-radius: 20px;
-    line-height: 1.7;
-    font-size: 15.5px;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    letter-spacing: -0.01em;
+.chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Message bubbles */
+.bubble {
+  max-width: 75%;
+  padding: 18px 22px;
+  border-radius: 20px;
+  line-height: 1.7;
+  font-size: 15.5px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: messageSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+@keyframes messageSlideIn {
+  from {
     opacity: 0;
-    animation: messageSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    transform: translateY(20px) scale(0.9) rotateX(10deg);
   }
 
-  .bubble::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.6s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
   }
+}
 
-  @keyframes messageSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.9) rotateX(10deg);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1) rotateX(0deg);
-    }
-  }
+.bubble:hover {
+  transform: translateY(-3px) scale(1.02);
+}
 
-  .bubble:hover {
-    transform: translateY(-3px) scale(1.02);
-  }
+.bubble:hover::before {
+  left: 100%;
+}
 
-  .bubble:hover::before {
-    left: 100%;
-  }
-  
-  .bubble.user {
-    align-self: flex-end;
-    background: 
-      linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.25)),
-      rgba(99, 102, 241, 0.15);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(99, 102, 241, 0.35);
-    color: rgba(255, 255, 255, 0.98);
-    border-bottom-right-radius: 8px;
-    box-shadow:
-      0 8px 32px rgba(99, 102, 241, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 0 20px rgba(99, 102, 241, 0.1);
-  }
+.bubble.user {
+  align-self: flex-end;
+  background:
+    linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.25)),
+    rgba(99, 102, 241, 0.15);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: rgba(255, 255, 255, 0.98);
+  border-bottom-right-radius: 8px;
+  box-shadow:
+    0 8px 32px rgba(99, 102, 241, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(99, 102, 241, 0.1);
+}
 
-  .bubble.user:hover {
-    box-shadow:
-      0 16px 50px rgba(99, 102, 241, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25),
-      0 0 40px rgba(99, 102, 241, 0.2);
-    border-color: rgba(99, 102, 241, 0.45);
-  }
-  
-  .bubble.assistant {
-    align-self: flex-start;
-    background: 
-      linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-      rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.95);
-    border-bottom-left-radius: 8px;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      0 0 15px rgba(255, 255, 255, 0.05);
-  }
+.bubble.user:hover {
+  box-shadow:
+    0 16px 50px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 40px rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.45);
+}
 
-  .bubble.assistant:hover {
-    box-shadow:
-      0 16px 50px rgba(0, 0, 0, 0.45),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      0 0 30px rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.18);
-  }
-  
-  /* =========================
+.bubble.assistant {
+  align-self: flex-start;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  border-bottom-left-radius: 8px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.bubble.assistant:hover {
+  box-shadow:
+    0 16px 50px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 30px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================
      BOTTOM INPUT (CHAT)
      ========================= */
-  
-  .chat-input {
-    display: flex;
-    gap: 12px;
-    padding: 24px 80px;
-    background: rgba(11, 11, 13, 0.8);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .chat-input input {
-    flex: 1;
-    padding: 16px 20px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 16px;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    outline: none;
-    letter-spacing: -0.01em;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 8px 24px rgba(0, 0, 0, 0.35);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .chat-input input:focus {
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px) scale(1.01);
+
+.chat-input {
+  display: flex;
+  gap: 12px;
+  padding: 24px 80px;
+  background: rgba(11, 11, 13, 0.8);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 16px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  outline: none;
+  letter-spacing: -0.01em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-input input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 16px 40px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(99, 102, 241, 0.2),
+    0 0 70px rgba(139, 92, 246, 0.1);
+  animation: chatInputGlow 2s ease-in-out infinite;
+}
+
+@keyframes chatInputGlow {
+
+  0%,
+  100% {
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.15),
       0 16px 40px rgba(0, 0, 0, 0.5),
       0 0 40px rgba(99, 102, 241, 0.2),
       0 0 70px rgba(139, 92, 246, 0.1);
-    animation: chatInputGlow 2s ease-in-out infinite;
   }
 
-  @keyframes chatInputGlow {
-    0%, 100% {
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.15),
-        0 16px 40px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(99, 102, 241, 0.2),
-        0 0 70px rgba(139, 92, 246, 0.1);
-    }
-    50% {
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.18),
-        0 16px 40px rgba(0, 0, 0, 0.5),
-        0 0 50px rgba(99, 102, 241, 0.3),
-        0 0 90px rgba(139, 92, 246, 0.15);
-    }
-  }
-
-  .chat-input input::placeholder {
-    transition: opacity 0.2s ease;
-  }
-
-  .chat-input input:focus::placeholder {
-    opacity: 0.6;
-  }
-  
-  .chat-input input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: -0.01em;
-  }
-  
-  .chat-input button {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background: rgba(99, 102, 241, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  50% {
     box-shadow:
-      0 8px 24px rgba(99, 102, 241, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 16px 40px rgba(0, 0, 0, 0.5),
+      0 0 50px rgba(99, 102, 241, 0.3),
+      0 0 90px rgba(139, 92, 246, 0.15);
   }
+}
 
-  .chat-input button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
-  }
-  
-  .chat-input button:hover {
-    background: rgba(99, 102, 241, 0.6);
-    transform: translateY(-3px) scale(1.08) rotate(5deg);
+.chat-input input::placeholder {
+  transition: opacity 0.2s ease;
+}
+
+.chat-input input:focus::placeholder {
+  opacity: 0.6;
+}
+
+.chat-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.01em;
+}
+
+.chat-input button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: rgba(99, 102, 241, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 8px 24px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-input button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.chat-input button:hover {
+  background: rgba(99, 102, 241, 0.6);
+  transform: translateY(-3px) scale(1.08) rotate(5deg);
+  box-shadow:
+    0 18px 45px rgba(99, 102, 241, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 30px rgba(99, 102, 241, 0.5),
+    0 0 60px rgba(139, 92, 246, 0.3);
+  animation: chatButtonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes chatButtonPulse {
+
+  0%,
+  100% {
     box-shadow:
       0 18px 45px rgba(99, 102, 241, 0.6),
       inset 0 1px 0 rgba(255, 255, 255, 0.35),
       0 0 30px rgba(99, 102, 241, 0.5),
       0 0 60px rgba(139, 92, 246, 0.3);
-    animation: chatButtonPulse 1.5s ease-in-out infinite;
   }
 
-  @keyframes chatButtonPulse {
-    0%, 100% {
-      box-shadow:
-        0 18px 45px rgba(99, 102, 241, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        0 0 30px rgba(99, 102, 241, 0.5),
-        0 0 60px rgba(139, 92, 246, 0.3);
-    }
-    50% {
-      box-shadow:
-        0 18px 45px rgba(99, 102, 241, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(99, 102, 241, 0.6),
-        0 0 80px rgba(139, 92, 246, 0.4);
-    }
+  50% {
+    box-shadow:
+      0 18px 45px rgba(99, 102, 241, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 40px rgba(99, 102, 241, 0.6),
+      0 0 80px rgba(139, 92, 246, 0.4);
+  }
+}
+
+.chat-input button:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.chat-input button svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.chat-input button:hover svg {
+  transform: translateX(2px) translateY(-2px);
+}
+
+.chat-input button:active {
+  transform: translateY(0) scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+@media (max-width: 768px) {
+  .chat-scroll {
+    padding: 40px 24px;
   }
 
-  .chat-input button:hover::before {
-    width: 100%;
-    height: 100%;
+  .chat-input {
+    padding: 20px 24px;
   }
 
-  .chat-input button svg {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease;
+  .bubble {
+    max-width: 85%;
+    padding: 16px 20px;
+    font-size: 15px;
   }
 
-  .chat-input button:hover svg {
-    transform: translateX(2px) translateY(-2px);
+  .empty-title {
+    font-size: 32px;
   }
-  
-  .chat-input button:active {
-    transform: translateY(0) scale(0.98);
-    transition: transform 0.1s ease;
+
+  .empty-subtitle {
+    font-size: 15px;
+    max-width: 90%;
   }
-  
-  @media (max-width: 768px) {
-    .chat-scroll {
-      padding: 40px 24px;
-    }
-    
-    .chat-input {
-      padding: 20px 24px;
-    }
-    
-    .bubble {
-      max-width: 85%;
-      padding: 16px 20px;
-      font-size: 15px;
-    }
-    
-    .empty-title {
-      font-size: 32px;
-    }
-    
-    .empty-subtitle {
-      font-size: 15px;
-      max-width: 90%;
-    }
-  }
-  
+}
