@@ -1,28 +1,28 @@
-# Market Insights Chatbot
+# Market Insights Chatbot (Frontend Prototype)
 
-**Market Insights Chatbot** is an intelligent web-based tool designed to democratize financial knowledge. Leveraging OpenAI's GPT models, it provides users with real-time answers to finance queries, stock market trends, and economic indicators.
+**Market Insights Chatbot** is a React-based frontend interface designed for a financial education tool. This prototype demonstrates the user interface and interaction flow for a chatbot that will eventually provide financial insights.
+
+> **Note:** This repository currently contains the **frontend prototype only**. The AI responses and real-time data fetching are simulated/mocked for demonstration purposes.
 
 ## Features
 
-*   **AI-Powered Responses**: Uses OpenAI GPT to explain complex financial concepts in simple terms.
-*   **Real-Time Data**: Integrates with financial APIs to fetch current stock prices and market trends.
-*   **Interactive Learning**: Ask questions like "What is inflation?" or "How is Tesla performing?" to get instant insights.
-*   **Modern UI**: Built with React for a responsive and smooth user experience.
+*   **Modern Chat Interface**: A clean, responsive UI built with React.
+*   **Interactive Simulations**: Experience the flow of asking financial questions with mocked responses.
+*   **Typing Animations**: "Ghost text" animations in the input field to prompt user engagement.
+*   **Responsive Design**: optimized for simulated mobile and desktop viewing.
 
 ## Tech Stack
 
 *   **Frontend**: React (Create React App)
-*   **AI Engine**: OpenAI GPT (via API)
-*   **Deployment**: AWS (as per project description)
+*   **Styling**: CSS
 
 ## Getting Started
 
-The core application logic is located in the `market-chatbot` directory.
+The application logic is located in the `market-chatbot` directory.
 
 ### Prerequisites
 
 *   Node.js installed
-*   An OpenAI API key
 
 ### Installation & Run
 
